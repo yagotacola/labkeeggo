@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto do Google Fonts */
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Cinza claro de fundo */
+            min-height: 100vh; /* Define a altura mínima da página como 100% da altura da viewport */
+            position: relative; /* Define o contexto de posicionamento */
+        }
+
+
+        header {
+            background-color: #f88d97; /* Verde água para o cabeçalho */
+            color: #fff; /* Texto branco */
+            padding: 0px;
+            text-align: left; /* Alinhamento à esquerda */
+        }
+
+        .logo {
+            max-width: 100%; /* Garante que a imagem não ultrapasse a largura do cabeçalho */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        nav {
+            background-color: #f88d97; /* Rosa para o menu */
+            padding: 10px;
+            text-align: left; /* Alinhamento à esquerda */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block; /* Exibe os itens do menu lado a lado */
+            margin-right: 20px; /* Espaçamento entre os itens do menu */
+            position: relative; /* Define o contexto de posicionamento para o submenu */
+        }
+
+        nav ul li ul {
+            display: none; /* Oculta o submenu por padrão */
+            position: absolute; /* Posiciona o submenu absolutamente em relação ao item do menu pai */
+            top: 0; /* Alinha o topo do submenu com o item do menu pai */
+            left: -150px; /* Move o submenu para a esquerda (ajuste conforme necessário) */
+            background-color: #fff; /* Cor de fundo do submenu */
+            padding: 10px;
+            border-radius: 5px; /* Borda arredondada */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra */
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Remove o espaçamento à direita do último item do menu */
+        }
+
+        nav ul li a {
+            color: #fff; /* Texto branco para os links */
+            text-decoration: none;
+            padding: 10px;
+            font-weight: bold; /* Texto em negrito */
+            font-size: 16px; /* Tamanho da fonte */
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto do Google Fonts */
+            transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+        }
+
+        nav ul li a:hover {
+            background-color: #008b82; /* Verde água mais escuro ao passar o mouse */
+        }
+
+        /* Restante do seu CSS permanece inalterado */
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            position: fixed; /* Fixa o rodapé */
+            bottom: 0; /* Alinha o rodapé na parte inferior */
+            width: 100%; /* Largura total */
+            background-color: #333; /* Cinza escuro para o rodapé */
+            color: #fff;
+            padding: 05px;
+            text-align: center;
+            display: flex; /* Usa o modelo flexbox para posicionar os elementos */
+            justify-content: space-between; /* Alinha os itens para que fiquem espaçados uniformemente */
+            align-items: center; /* Centraliza verticalmente os itens */
+            box-sizing: border-box; /* Inclui padding e border na largura e altura */
+            font-size: 10px; /* Tamanho da fonte do rodapé */
+        }
+
+        .left-text,
+        .right-text {
+            flex-grow: 1; /* Permite que os elementos cresçam igualmente */
+            overflow: hidden; /* Evita que o texto ultrapasse o limite do rodapé */
+            white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
+            text-overflow: ellipsis; /* Adiciona reticências quando o texto é cortado */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="C:\Users\yago.oliveira\OneDrive - KEEGGO TECHNOLOGY BRASIL S A\Documentos\Yago\Imagens\Artes para Redes Sociais\Capa do Linkedin (3).png" alt="Logo da Empresa">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Index.html">HOME</a></li>
+            <li><a href="Onboarding/onboarding.html">ONBOARDING</a></li>
+            <li><a href="#">NOSSO CLIENTE</a></li>
+            <li><a href="#">TREINAMENTO</a></li>
+            <!-- Adicione mais itens de menu conforme necessário -->
+        </ul>
+    </nav>
+    <main>
+        <h2>Sobre o Laboratório de Certificação</h2>
+        <p>O Laboratório de Certificação é uma iniciativa da Keeggo, uma empresa especializada em soluções de tecnologia. Como parte de nosso compromisso com a excelência, trabalhamos em parceria com empresas líderes como a Cielo para oferecer os mais altos padrões de certificação e treinamento.</p>
+        <p>Nosso site é dedicado ao treinamento e reciclagem de analistas, fornecendo recursos educacionais de ponta para manter os profissionais atualizados com as últimas tecnologias e práticas da indústria. Seja bem-vindo ao Laboratório de Certificação, onde aprimoramos habilidades e impulsionamos carreiras.</p>
+    </main>
+    <footer>
+            <div>LABORATORIO DE CERTICAÇÃO KEEGGO - CIELO</div>
+            <div>© 2024 Yago Tacola | versão 1.0.0.1</div>
+    </footer>
+    </body>
+</html>

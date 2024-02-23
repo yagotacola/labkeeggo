@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto do Google Fonts */
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Cinza claro de fundo */
+            min-height: 100vh; /* Define a altura mínima da página como 100% da altura da viewport */
+            position: relative; /* Define o contexto de posicionamento */
+        }
+
+
+        header {
+            background-color: #f88d97; /* Verde água para o cabeçalho */
+            color: #fff; /* Texto branco */
+            padding: 0px;
+            text-align: left; /* Alinhamento à esquerda */
+        }
+
+        .logo {
+            max-width: 100%; /* Garante que a imagem não ultrapasse a largura do cabeçalho */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        nav {
+            background-color: #f88d97; /* Rosa para o menu */
+            padding: 10px;
+            text-align: left; /* Alinhamento à esquerda */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block; /* Exibe os itens do menu lado a lado */
+            margin-right: 20px; /* Espaçamento entre os itens do menu */
+            position: relative; /* Define o contexto de posicionamento para o submenu */
+        }
+
+        nav ul li ul {
+            display: none; /* Oculta o submenu por padrão */
+            position: absolute; /* Posiciona o submenu absolutamente em relação ao item do menu pai */
+            top: 0; /* Alinha o topo do submenu com o item do menu pai */
+            left: -150px; /* Move o submenu para a esquerda (ajuste conforme necessário) */
+            background-color: #fff; /* Cor de fundo do submenu */
+            padding: 10px;
+            border-radius: 5px; /* Borda arredondada */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra */
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Remove o espaçamento à direita do último item do menu */
+        }
+
+        nav ul li a {
+            color: #fff; /* Texto branco para os links */
+            text-decoration: none;
+            padding: 10px;
+            font-weight: bold; /* Texto em negrito */
+            font-size: 16px; /* Tamanho da fonte */
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto do Google Fonts */
+            transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+        }
+
+        nav ul li a:hover {
+            background-color: #008b82; /* Verde água mais escuro ao passar o mouse */
+        }
+
+        /* Restante do seu CSS permanece inalterado */
+
+        main {
+            padding: 20px;
+        }
+
+        
+         /* Estilos para o submenu à esquerda */
+        .submenu {
+            width: 180px; /* Ajuste a largura conforme necessário */
+            float: left;
+            background-color: #f88d97; /* Rosa claro para o submenu */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px; /* Ajuste o espaçamento entre o submenu e o conteúdo à direita */
+        }
+
+        .submenu h3 {
+            color: #ffffff; /* Verde água para o título do submenu */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .submenu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .submenu ul li {
+            margin-bottom: 5px;
+        }
+
+        .submenu ul li a {
+            color: #ffffff; /* Verde água para as opções do submenu */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .submenu ul li a:hover {
+            color: #008b82; /* Tom mais escuro do verde água ao passar o mouse */
+        }
+
+        /* Adiciona estilo para indicar qual submenu está selecionado */
+        .submenu ul li.selected a {
+            font-weight: bold; /* Fonte em negrito */
+            color: #008b82; /* Cor rosa para o submenu selecionado */
+        }
+
+        /* Estilos para o conteúdo à direita */
+        .conteudo {
+            margin-left: 230px; /* Ajuste o espaçamento entre o submenu e o conteúdo à direita */
+        }
+
+        .conteudo .conteudo-item {
+            display: none; /* Oculta todos os itens de conteúdo por padrão */
+        }
+
+        .conteudo .conteudo-item.active {
+            display: block; /* Exibe apenas o item de conteúdo ativo */
+        }
+
+
+        /* Estilos para o conteúdo à direita */
+        .conteudo {
+            margin-left: 230px; /* Ajuste o espaçamento entre o submenu e o conteúdo à direita */
+        }
+
+        .conteudo .conteudo-item {
+            display: none; /* Oculta todos os itens de conteúdo por padrão */
+        }
+
+        .conteudo .conteudo-item.active {
+            display: block; /* Exibe apenas o item de conteúdo ativo */
+        }
+
+        /* Estilos para a estrutura de imagem e texto */
+        .conteudo-imagem {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .conteudo-imagem img {
+            width: 150px; /* Ajuste o tamanho da imagem conforme necessário */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-right: 20px; /* Ajuste o espaçamento entre a imagem e o texto */
+            border-radius: 5px;
+        }
+
+        .conteudo-texto {
+            flex: 1;
+        }
+
+        .conteudo-texto h2 {
+            color: #007a99; /* Verde água para o título do conteúdo */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .conteudo-texto p {
+            color: #333; /* Cor padrão para o texto */
+            font-size: 16px;
+        }
+
+        .conteudo-imagem img {
+    width: 300px; /* Define a largura da imagem */
+    height: 500px; /* Mantém a proporção da imagem */
+    margin-right: 20px; /* Ajuste o espaçamento entre a imagem e o texto */
+    border-radius: 25px;
+        }
+
+
+        footer {
+            margin-top: 120px; /* Adiciona um espaço entre o conteúdo e o rodapé */
+            position: fixed; /* Fixa o rodapé */
+            bottom: 0; /* Alinha o rodapé na parte inferior */
+            width: 100%; /* Largura total */
+            background-color: #333; /* Cinza escuro para o rodapé */
+            color: #fff;
+            padding: 05px;
+            text-align: center;
+            display: flex; /* Usa o modelo flexbox para posicionar os elementos */
+            justify-content: space-between; /* Alinha os itens para que fiquem espaçados uniformemente */
+            align-items: center; /* Centraliza verticalmente os itens */
+            box-sizing: border-box; /* Inclui padding e border na largura e altura */
+            font-size: 10px; /* Tamanho da fonte do rodapé */
+        }
+
+        .left-text,
+        .right-text {
+            flex-grow: 1; /* Permite que os elementos cresçam igualmente */
+            overflow: hidden; /* Evita que o texto ultrapasse o limite do rodapé */
+            white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
+            text-overflow: ellipsis; /* Adiciona reticências quando o texto é cortado */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="C:\Users\yago.oliveira\OneDrive - KEEGGO TECHNOLOGY BRASIL S A\Documentos\Yago\Imagens\Artes para Redes Sociais\Capa do Linkedin (3).png" alt="Logo da Empresa">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../Index.html">HOME</a></li>
+            <li><a href="Onboarding/onboarding.html">ONBOARDING</a></li>
+            <li><a href="#">NOSSO CLIENTE</a></li>
+            <li><a href="#">TREINAMENTO</a></li>
+            <!-- Adicione mais itens de menu conforme necessário -->
+        </ul>
+    </nav>
+    <main>
+        <!-- Conteúdo principal da página 2 -->
+        <div class="submenu">
+            <!-- Submenu à esquerda -->
+            <h3>ONBOARDING</h3>
+            <ul>
+                <li><a href="#" class="submenu-item" data-target="conteudo1">AHGORA</a></li>
+                <li><a href="#" class="submenu-item" data-target="conteudo2">AHGORA: APP Mobile</a></li>
+                <li><a href="#" class="submenu-item" data-target="conteudo3">Opção 3</a></li>
+            </ul>
+        </div>
+        <div class="conteudo">
+            <!-- Conteúdo à direita -->
+            <div id="conteudo1" class="conteudo-item">
+                <div class="conteudo-imagem">
+                    
+                    <div class="conteudo-texto">
+                        <iframe src="slide1.html" width="100%" height="600" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div id="conteudo2" class="conteudo-item">
+                <div class="conteudo-imagem">
+                    
+                    <div class="conteudo-texto">
+                        <iframe src="slide2.html" width="100%" height="600" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div id="conteudo3" class="conteudo-item">
+                <div class="conteudo-imagem">
+                    <img src="caminho_para_sua_imagem.jpg" alt="Imagem">
+                    <div class="conteudo-texto">
+                        <h2>Seu primeiro cadastro no aplicativo</h2>
+                        <br>
+                        <br>
+                        <p>Texto do Conteúdo 3. Aqui você pode adicionar todo o conteúdo relevante para esta opção.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>LABORATORIO DE CERTICAÇÃO KEEGGO - CIELO</div>
+        <div>© 2024 Yago Tacola | versão 1.0.0.1</div>
+    </footer>
+    <script>
+        // Seleciona todos os itens do submenu
+        const submenuItems = document.querySelectorAll('.submenu-item');
+        // Seleciona todos os itens de conteúdo à direita
+        const conteudoItems = document.querySelectorAll('.conteudo-item');
+
+        // Adiciona um event listener para cada item do submenu
+        submenuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault(); // Previne o comportamento padrão do link
+                const target = this.getAttribute('data-target'); // Obtém o alvo do atributo data-target
+                // Remove a classe 'active' de todos os itens de conteúdo
+                conteudoItems.forEach(conteudo => {
+                    conteudo.classList.remove('active');
+                });
+                // Adiciona a classe 'active' apenas ao item de conteúdo correspondente
+                document.getElementById(target).classList.add('active');
+                // Remove a classe 'selected' de todos os itens do submenu
+                submenuItems.forEach(subitem => {
+                    subitem.parentNode.classList.remove('selected');
+                });
+                // Adiciona a classe 'selected' apenas ao item do submenu clicado
+                this.parentNode.classList.add('selected');
+            });
+        });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel de Slides</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f1f1f1;
+        }
+
+        .carousel {
+            max-width: 800px; /* Defina o tamanho máximo do carousel conforme necessário */
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel img {
+            width: 100%; /* Assegura que as imagens ocupem 100% do carousel */
+            height: auto; /* Mantém a proporção da imagem */
+            display: block;
+            margin: 0 auto; /* Centraliza a imagem horizontalmente */
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .controls button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Inclua as imagens dos seus slides aqui -->
+            <img src="C:\Users\yago.oliveira\OneDrive - KEEGGO TECHNOLOGY BRASIL S A\Documentos\Yago\Imagens\Onboarding\1.png" alt="Slide 1">
+
+            <!-- Adicione mais imagens conforme necessário -->
+        </div>
+        <div class="controls">
+            <button onclick="prevSlide()">Anterior</button>
+            <button onclick="nextSlide()">Próximo</button>
+            <button onclick="toggleFullScreen()">Tela Cheia</button>
+        </div>
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlide(slideIndex);
+
+        function nextSlide() {
+            showSlide(slideIndex += 1);
+        }
+
+        function prevSlide() {
+            showSlide(slideIndex -= 1);
+        }
+
+        function showSlide(n) {
+            var slides = document.querySelectorAll('.carousel img');
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[slideIndex].style.display = 'block';
+        }
+
+        function toggleFullScreen() {
+            var elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) { /* Firefox */
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE/Edge */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
